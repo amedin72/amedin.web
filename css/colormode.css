@@ -1,0 +1,73 @@
+/* =========================================================
+   COLOR THEMES
+========================================================= */
+
+/* ---------- LIGHT MODE ---------- */
+:root {
+  --bg: #fff;
+  --bg-alt: #333;
+  --bg-alt-2: #f0f0f0;
+  --bg-transparent: #ffffffe8;
+  --border: 0.01rem solid #333;
+  --text: #333;
+  --text-alt: #fff;
+  --accent: #ffbb00;
+}
+
+/* ---------- DARK MODE ---------- */ 
+:root.darkmode {
+  --bg: #0f0f10;
+  --bg-alt: #1a1a1b;
+  --bg-alt-2: #121213;
+  --bg-transparent: rgba(0, 0, 0, 0.85);
+  --border: 0.01rem solid #2a2a2b;
+  --text: #eaeaea;
+  --text-alt: #bbbbbb;
+  --t1-1: url("../assets/animation-light/deathnote.png");
+}
+
+
+/* =========================================================
+   COLOR MODE TOGGLE BUTTON
+========================================================= */
+
+#colormode {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: rgb(161, 161, 161);
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.25rem;
+  cursor: pointer;
+  z-index: 1000;
+  opacity: 1;
+  height: clamp(2rem, 3.5vw, 2.75rem);
+  width: clamp(3rem, 7vw, 4.3rem);
+}
+
+#togglebutton {
+  background: #fff;
+  border-radius: 50%;
+  opacity: 1;
+  transition: transform 0.3s ease;
+  height: calc(var(--toggle-size, 2.25rem));
+  width: calc(var(--toggle-size, 2.25rem));
+}
+
+/* ---------- RESPONSIVE ADJUSTMENTS ---------- */
+@media (max-width: 520px) {
+  #colormode {
+    top: 0.75rem;
+    right: 0.75rem;
+    width: clamp(2.6rem, 12vw, 3.6rem);
+    height: clamp(1.8rem, 8vw, 2.2rem);
+    padding: 0.15rem;
+  }
+
+  #togglebutton {
+    transform: translateX(0);
+  }
+}

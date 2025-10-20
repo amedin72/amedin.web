@@ -1,0 +1,406 @@
+/* =========================================================
+   IMPORT FONTS
+========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Happy+Monkey&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+
+/* =========================================================
+   GLOBAL STYLES
+========================================================= */
+body {
+  font-family: "Nunito", sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  padding-top: 74px; /* offset for fixed nav */
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 1s ease, color 1s ease;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+.icon {
+  width: 2rem;
+  height: 2rem;
+  margin: 0 0.5rem;
+}
+
+
+/* =========================================================
+   NAVIGATION BAR
+========================================================= */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--bg);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+nav .logo {
+  height: 40px;
+  margin-right: 2rem;
+}
+
+nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-main { flex: 1; }
+
+.nav-links-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  flex: 1;
+}
+
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1.15rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent);
+  transition: width 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Nav buttons */
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3em 0.8em;
+  margin-left: 0.5em;
+  font-weight: 600;
+  border-radius: 20px;
+  background: var(--bg-alt-2, #e0e0e0);
+  transition: background 0.3s, color 0.3s;
+}
+
+.nav-btn:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.nav-links-center img {
+  height: 24px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+
+/* =========================================================
+   HERO SECTION
+========================================================= */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: clamp(1rem, 4vw, 2rem);
+  box-sizing: border-box;
+}
+
+#hero h1 {
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  margin: 0.25rem 0;
+}
+
+#hero h2 {
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  margin: 0.25rem 0;
+}
+
+/* Typewriter effect */
+.typewriter {
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 0.12em solid currentColor;
+}
+
+.typewriter.typing {
+  animation: caret 0.75s steps(1) infinite;
+}
+
+@keyframes caret {
+  50% { border-color: transparent; }
+}
+
+/* Animated name letters */
+.name-letter {
+  display: inline-block;
+  opacity: 0;
+  color: var(--accent, #4dff97);
+  transform: translateY(6px);
+  transition: opacity 0.15s linear, transform 0.15s ease;
+}
+
+.name-letter.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   WAVE TEXT EFFECT
+========================================================= */
+.wave-animate {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.wave-animate:hover {
+  animation: wave 1s ease infinite;
+  color: var(--accent);
+}
+
+@keyframes wave {
+  0%, 100% { transform: translateY(0); }
+  25%, 75% { transform: translateY(-8px) rotate(var(--deg, 1deg)); }
+}
+
+.wave-animate::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.wave-animate:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+
+/* =========================================================
+   ABOUT SECTION
+========================================================= */
+.about-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 2rem;
+}
+
+.about-info {
+  flex: 1 1 350px;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.about-img {
+  flex: 0 1 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-heading {
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.02em;
+  transition: transform 0.3s ease;
+}
+
+/* Tech list */
+.tech-section { margin-top: 1.5rem; }
+
+.tech-list {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.tech-list ul {
+  list-style: disc inside;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin: 0;
+  padding: 0 0.5rem 0 0;
+}
+
+.tech-logos {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: flex-end;
+}
+
+.tech-logos img,
+.tech-logo img {
+  width: auto !important;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.12));
+}
+
+.tech-logos img { height: 12px !important; }
+.tech-logo img { height: 8px !important; margin-left: 0.3em; }
+
+
+/* =========================================================
+   PROJECTS SECTION
+========================================================= */
+#projects .projects-heading {
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+
+/* =========================================================
+   GENERAL SECTIONS
+========================================================= */
+.full-page-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+/* Light mode */
+#about, #projects {
+  background-color: #fff;
+}
+
+/* Dark mode */
+:root.darkmode #about,
+:root.darkmode #projects {
+  background-color: #0f0f10;
+}
+
+
+/* =========================================================
+   MISC / HELPERS
+========================================================= */
+.deathnote-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 0.25rem;
+}
+
+#hero__animation, #hero__animation__img {
+  height: clamp(12rem, 30vw, 25rem);
+  width: clamp(12rem, 30vw, 25rem);
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+#hero__animation__img {
+  background-size: contain;
+  background-position: center;
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.vertical-text h1, .vertical-text p {
+  margin: 0.25rem 0;
+}
+
+.gif {
+  position: absolute;
+  top: 8rem;
+  left: 48%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: 200px;
+  height: 200px;
+}
+
+/* Modal overlay */
+.modal {
+  display: none; /* hidden by default */
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5); /* semi-transparent background */
+  backdrop-filter: blur(2px);
+}
+
+/* Modal box */
+.modal-content {
+  background-color: var(--bg-alt-2);
+  color: var(--text);
+  margin: 15% auto;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  font-family: sans-serif;
+  font-size: 1.1rem;
+  position: relative;
+}
+
+/* Close button */
+.close {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  color: var(--text-alt);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.close:hover {
+  color: var(--accent);
+}
