@@ -404,3 +404,22 @@ nav a:hover::after {
 .close:hover {
   color: var(--accent);
 }
+/* Make Nav scrollable on mobile */
+@media (max-width: 768px) {
+  nav {
+    /* 1. prevent links from wrapping to the next line */
+    flex-wrap: nowrap;
+
+    /* 2. add horizontal scrollbar if needed */
+    overflow-x: auto;
+    
+    /* 3. could  hide the ugly scrollbar */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
+  }
+
+  /* 4. could also hide scrollbar for Chrome/Safari */
+  nav::-webkit-scrollbar {
+    display: none;
+  }
+}
