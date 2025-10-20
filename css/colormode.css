@@ -31,10 +31,16 @@
    COLOR MODE TOGGLE BUTTON
 ========================================================= */
 
+/* =========================================================
+   COLOR MODE TOGGLE BUTTON
+========================================================= */
+
 #colormode {
+  /* 1. New Position */
   position: fixed;
-  top: 1rem;
-  right: 1rem;
+  bottom: 25px;  /* Changed from top */
+  right: 25px;   /* Changed from right */
+
   background: rgb(161, 161, 161);
   border-radius: 999px;
   display: flex;
@@ -44,6 +50,8 @@
   cursor: pointer;
   z-index: 1000;
   opacity: 1;
+
+  /* Using your desktop size */
   height: clamp(2rem, 3.5vw, 2.75rem);
   width: clamp(3rem, 7vw, 4.3rem);
 }
@@ -52,9 +60,42 @@
   background: #fff;
   border-radius: 50%;
   opacity: 1;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease; /* Make sure transition is here */
+
+  /* desktop size */
   height: calc(var(--toggle-size, 2.25rem));
   width: calc(var(--toggle-size, 2.25rem));
+}
+
+/* handles the "slide" */
+.darkmode #togglebutton {
+  transform: translateX(1.5rem);
+}
+
+
+/* smaller mobile styles */
+@media (max-width: 768px) {
+  #colormode {
+    /* new mobile position */
+    bottom: 15px;
+    right: 15px;
+
+    /* smaller, simple size for mobile */
+    width: 2.5rem;  /* 40px */
+    height: 1.25rem; /* 20px */
+    padding: 0.15rem;
+  }
+
+  #togglebutton {
+    /* Smaller inner circle */
+    width: 1rem;   /* 16px */
+    height: 1rem;  /* 16px */
+  }
+
+  /* 4. New slide distance for the smaller button */
+  .darkmode #togglebutton {
+    transform: translateX(1.25rem); /* 20px */
+  }
 }
 
 /* ---------- RESPONSIVE ADJUSTMENTS ---------- */

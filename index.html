@@ -154,15 +154,13 @@
             const toggleButton = document.getElementById('togglebutton');
 
             if (colorMode && toggleButton) {
-                // restore user's preference from localStorage
+                // restore users preference from localStorage
                 if (localStorage.getItem('site-darkmode') === 'true') {
                     document.documentElement.classList.add('darkmode');
-                    toggleButton.style.transform = 'translateX(1.5rem)';
                 }
                 // add click listener to toggle dark mode
                 colorMode.addEventListener('click', () => {
                     const enabled = document.documentElement.classList.toggle('darkmode');
-                    toggleButton.style.transform = enabled ? 'translateX(1.5rem)' : 'translateX(0)';
                     localStorage.setItem('site-darkmode', enabled);
                 });
             }
